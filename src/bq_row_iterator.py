@@ -5,10 +5,10 @@ class BigQueryRowIterator(object):
     def next_batch(self):
         self.current_batch = next(self.arrow_iterable).to_pylist()
 
-    def __init__(self, query_result, max_queue_size=2, storage_client=None):
+    def __init__(self, query_result, max_queue_size=2, bqstorage_client=None):
         self.arrow_iterable = query_result.to_arrow_iterable(
             max_queue_size=max_queue_size,
-            storage_client=storage_client or BigQueryReadClient(),
+            bqstorage_client=bqstorage_client or BigQueryReadClient(),
         )
         self.next_batch()
 
