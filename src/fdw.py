@@ -248,11 +248,7 @@ class ConstantForeignDataWrapper(ForeignDataWrapper):
         for row in client.readResult():
             # Create an ordered dict with the column name and value
             # Example: `OrderedDict([('column1', 'value1'), ('column2', value2)])`
-            line = OrderedDict()
-            for column in columns:
-                line[column] = row[column]
-
-            yield line
+            return OrderedDict(row)
 
     def buildQuery(self, quals, columns):
         """
