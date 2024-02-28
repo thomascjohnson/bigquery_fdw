@@ -10,7 +10,7 @@ import datetime
 from google.cloud import bigquery
 from google import auth
 
-from bq_row_iterator import BigQueryRowIterator
+from .bq_row_iterator import BigQueryRowIterator
 
 
 class BqClient:
