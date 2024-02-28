@@ -7,8 +7,10 @@
 
 import datetime
 
-from google.cloud import bigquery, bigquery_storage
+from google.cloud import bigquery
 from google import auth
+
+from bq_row_iterator import BigQueryRowIterator
 
 
 class BqClient:
@@ -79,9 +81,7 @@ class BqClient:
 
         if self.queryJob:
             result = self.queryJob.result()
-            return result.to_dataframe(create_bqstorage_client=True).to_dict(
-                orient="records"
-            )
+            return BigQueryRowIterator(result)
         else:
             raise RuntimeError("No query is pending a result.")
 

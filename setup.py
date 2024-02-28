@@ -24,6 +24,7 @@ setup(
         "google-cloud-bigquery-storage==2.20.0",
         "db-dtypes==1.1.1",
         "pandas==2.0.2",
+        "pyarrow",
     ],
     entry_points={
         "console_scripts": [
