@@ -9,7 +9,7 @@ except (IOError, ImportError):
 
 setup(
     name="bigquery-fdw",
-    version="2.3.2",
+    version="2.4.0",
     description="BigQuery Foreign Data Wrapper for PostgreSQL",
     long_description=long_description,
     author="Gabriel Bordeaux",
